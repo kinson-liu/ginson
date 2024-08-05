@@ -1,0 +1,35 @@
+service:
+  name: ginson
+  mode: debug # [debug|test|release]
+  description: "ginson a simple REST framework based on Gin."
+  version: ""
+  host: "localhost"
+  port: 8080
+  scheme: http
+  prefix:
+log:
+  level: Debug
+  path: "./logs/ginson.log"
+  maxSize: 10
+  maxAge: 0
+  maxBackups: 5
+db:
+  type: mongo
+  schema: ginson
+  host: localhost
+  port: 27017
+  username: ginson
+  password: ginson
+  conn:
+    min: 10
+    max: 100
+cache:
+  type: redis
+  addr: 127.0.0.1:6379
+  password:
+  db: 0
+auth:
+  jwt:
+    signingKey: Ginson # change it
+    expiresTime: 7d
+    refreshTime: 1d
